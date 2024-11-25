@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/add_product.css') }}">
+</head>
+<body>
+    <div class="content-section">
+        {% with messages=get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Seller Dashboard</h2>
+        <ul>
+            <li><a href="{{url_for('home')}}">home</a></li>
+            <li><a href="{{url_for('categories')}}">shop</a></li>
+            <li><a href="{{url_for('single')}}">blog</a></li>
+            <li><a href="{{url_for('contact')}}">contact</a></li>
+            <li><a href="{{url_for('dashboard')}}">dashboard</a></li>
+        </ul>
+    </div>
+    
+    <div class="form-container">
+        <h2>Add New Product</h2>
+        <form action="{{ url_for('add_product') }}" method="POST" enctype="multipart/form-data">  <!-- Added enctype -->
+            {{ form.hidden_tag() }}  <!-- CSRF protection -->
+
+            <div>
+                {{ form.name.label }}  <!-- Label for Product Name -->
+                {{ form.name(size=32) }}  <!-- Input for Product Name -->
+            </div>
+            <div>
+                {{ form.price.label }}  <!-- Label for Price -->
+                {{ form.price(size=10) }}  <!-- Input for Price -->
+            </div>
+            <div>
+                {{ form.quantity.label }}  <!-- Label for Stock Quantity -->
+                {{ form.quantity(size=10) }}  <!-- Input for Stock Quantity -->
+            </div>
+            <div>
+                {{ form.image_file.label }}  <!-- Label for Image File -->
+                {{ form.image_file(size=32) }}  <!-- Input for Image File -->
+            </div>
+            <button type="submit">{{ form.submit.label }}</button>  <!-- Submit Button -->
+        </form>
+    </div>
+</body>
+</html>

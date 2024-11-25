@@ -1,0 +1,169 @@
+/* General body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation container styles */
+.main_nav_container {
+    background-color: #343a40; /* Dark gray background for navbar */
+    padding: 15px 0;
+}
+
+.container {
+    max-width: 1200px; /* Max width for container */
+    margin: 0 auto; /* Centering the container */
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar_menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar_menu li {
+    margin-left: 30px; /* Space between menu items */
+}
+
+.navbar_menu a {
+    color: white; /* White text color for links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar_menu a:hover {
+    color: #ffc107; /* Yellow color on hover */
+}
+
+/* Logo styles */
+.logo_container {
+    font-size: 24px;
+    font-weight: bold;
+    color: white; /* White color for logo */
+}
+
+.logo_container a {
+    color: white; /* White color for logo link */
+    text-decoration: none;
+}
+
+/* Hamburger menu styles */
+.hamburger_container {
+    display: none; /* Hidden by default */
+}
+
+/* Form container styles */
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 40px auto; /* Center the form */
+}
+
+/* Heading styles */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #343a40; /* Dark gray color for the heading */
+}
+
+/* Form group styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Label styles */
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #495057; /* Darker gray for labels */
+}
+
+/* Input and textarea styles */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da; /* Light gray border */
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+/* Input focus styles */
+input:focus,
+textarea:focus {
+    border-color: #80bdff; /* Blue border on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Error message styles */
+.error {
+    color: #dc3545; /* Red color for error messages */
+    font-size: 12px;
+}
+
+/* Success message styles */
+.success {
+    color: #28a745; /* Green color for success messages */
+    text-align: center;
+}
+
+/* List styles for flash messages */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0 0 0; /* Margin for spacing */
+}
+
+ul li {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Button styles */
+.button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+/* Button hover styles */
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar_menu {
+        display: none; /* Hide menu on smaller screens */
+    }
+    .hamburger_container {
+        display: block; /* Show hamburger menu */
+        cursor: pointer;
+    }
+    .form-container {
+        width: 90%; /* Make the form responsive */
+    }
+}

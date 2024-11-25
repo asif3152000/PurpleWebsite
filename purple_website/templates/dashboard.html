@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seller Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/dashboard.css') }}">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>Seller Dashboard</h2>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#products">Manage Products</a></li>
+        <li><a href="#orders">Orders</a></li>
+        <li><a href="#earnings">Earnings</a></li>
+        <li><a href="#account">Account Settings</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Overview Section -->
+      <section id="overview">
+        <h3>Overview</h3>
+        <div class="stats">
+          <div class="stat">
+            <h4>Total Sales</h4>
+            <p>$5,230</p>
+          </div>
+          <div class="stat">
+            <h4>Orders</h4>
+            <p>120</p>
+          </div>
+          <div class="stat">
+            <h4>Earnings</h4>
+            <p>$3,800</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Manage Products Section -->
+      <section id="products">
+        <h3>Manage Products</h3>
+        <a href="{{url_for('add_product')}}"><button >Add Product</button></a>
+        <table>
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th>status</th>
+            </tr>
+          </thead>
+          <tbody id="product-list">
+            {% if products%}
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+              <td>${{ product.price }}</td>
+              <td>{{ product.quantity }}</td>
+              {% if product.status == "available" %}
+              <td>{{ product.status }}</td>
+              {%endif%}
+            </tr>
+            {% endfor %}
+            {% endif %}
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Orders Section -->
+      <section id="orders">
+        <h3>Solded Products</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Product</th>
+              <th>Status</th>
+              <th>price</th>
+            </tr>
+          </thead>
+          <tbody id="product-list">
+            {% if products%}
+            {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+              <td>${{ product.name }}</td>
+              {% if product.status == "sold" %}
+              <td>{{ product.status }}</td>
+              {%endif%}
+              <td>${{ product.price }}</td>
+              
+            </tr>
+            {% endfor %}
+            {% endif %}
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+
+</body>
+</html>
